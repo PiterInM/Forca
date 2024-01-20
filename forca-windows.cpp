@@ -2,7 +2,7 @@
  *       Jogo de Forca no terminal       *
  *               (Windows)               *
  *                                       *
- * Escrito por Piter InÃ¡cio (18/01/2024) *
+ * Escrito por Piter Inácio (18/01/2024) *
  * MIT License                           *
  *                                       *
  * GitHub: @piterinm                     *
@@ -19,11 +19,11 @@ using namespace std;
 #define quantPalavras 70
 #define quantLetras 16
 
-// Listagem de possÃ­veis palavras a serem sorteadas em cada partida
-// Para incluir ou modificar as palavras, dentro de um array de 16 posiÃ§Ãµes, coloque
-// cada letra em uma posiÃ§Ã£o e complete com '_' atÃ© a 15Âº posiÃ§Ã£o, reservando a 
-// Ãºltima para um nÃºmero inteiro correspondente a quantidade de letras da palavra.
-// Em casos de adicinar ou remover palavras da lista faz se necessÃ¡rio atualizar o
+// Listagem de possíveis palavras a serem sorteadas em cada partida
+// Para incluir ou modificar as palavras, dentro de um array de 16 posições, coloque
+// cada letra em uma posição e complete com '_' até a 15º posição, reservando a 
+// última para um número inteiro correspondente a quantidade de letras da palavra.
+// Em casos de adicinar ou remover palavras da lista faz se necessário atualizar o
 // define "quantPalavras" para a nova quantidade de palavras na matriz.
 char dicionario[quantPalavras][quantLetras] = { {'c','i','l','i','o','_','_','_','_','_','_','_','_','_','_', 5},
                                                 {'b','a','n','c','o','_','_','_','_','_','_','_','_','_','_', 5},
@@ -96,19 +96,19 @@ char dicionario[quantPalavras][quantLetras] = { {'c','i','l','i','o','_','_','_'
                                                 {'i','n','c','e','n','s','i','b','i','l','i','d','a','d','e', 15},
                                                 {'o','b','r','i','g','a','t','o','r','i','e','d','a','d','e', 15} };
 
-// ComeÃ§o do jogo
+// Começo do jogo
 int main() {
     //Setar pt_BR
-    setlocale(LC_ALL, "pt_BR.UTF-8");
+    setlocale(LC_ALL, "portuguese");
 
     inicio:
 
-    // DeclaraÃ§Ãµes por partida
+    // Declarações por partida
     int tamanhoPalavra, contErros = 0, vidas = 6;
     char palavra[quantLetras], resposta[quantLetras], tentativa, erros[6];
     for (int c = 0; c < 6; c++) erros[c] = ' ';
 
-    // Sorteio para escolher uma das palavras aleatÃ³riamente
+    // Sorteio para escolher uma das palavras aleatóriamente
     srand((unsigned)time(NULL));
     int n = rand() % quantPalavras;
 
@@ -121,7 +121,7 @@ int main() {
 
     // Loop da partida
     while (true) {
-        // Limpar terminal e imprimir tÃ­tulo
+        // Limpar terminal e imprimir tí­tulo
         system("cls");
         cout << " Jogo da Forca\n";
 
@@ -138,8 +138,8 @@ int main() {
 
         // Imprimir contador de vidas
         // Baseado no jogo original de forca, onde cada erro se desenhava uma parte do corpo
-        // (cabeÃ§a, corpo, braÃ§os direito e esquerdo e pernas direita e esquerda) a cada erro
-        // atÃ© completar e perder o jogo, totalizando 6 vidas.
+        // (cabeça, corpo, braços direito e esquerdo e pernas direita e esquerda) a cada erro
+        // até completar e perder o jogo, totalizando 6 vidas.
         cout << " Vidas: " << vidas << "\n";
 
         // Imprimir estado atual da resposta
@@ -152,7 +152,7 @@ int main() {
         }
         cout << "\n";
 
-        // VerificaÃ§Ã£o de acerto ou morte
+        // Verificação de acerto ou morte
         if (conferencia >= tamanhoPalavra || vidas == 0)
             break;
 
@@ -179,9 +179,9 @@ int main() {
     }
     // Fim do loop
 
-    // Mensagens de fim de partida por vitÃ³ria ou derrota
+    // Mensagens de fim de partida por vitória ou derrota
     if (tentativa != '*' && vidas != 0)
-        cout << "\n Parabens, vocÃª venceu o jogo!";
+        cout << "\n Parabéns, você venceu o jogo!";
     else {
         cout << " Que pena. A palavra era: ";
         for (int i = 0; i < tamanhoPalavra; i++)

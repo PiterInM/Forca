@@ -10,7 +10,9 @@
 \*****************************************/
 
 #include <iostream>
+#include <locale.h>
 #include <cstdlib>
+#include <time.h>
 using namespace std;
 
 
@@ -97,7 +99,7 @@ char dicionario[quantPalavras][quantLetras] = { {'c','i','l','i','o','_','_','_'
 // Começo do jogo
 int main() {
     //Setar pt_BR
-    setlocale(LC_ALL, "pt_BR-UTF8");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
 
     inicio:
 
@@ -179,7 +181,7 @@ int main() {
 
     // Mensagens de fim de partida por vitória ou derrota
     if (tentativa != '*' && vidas != 0)
-        cout << "\n Parabens, voc� venceu o jogo!";
+        cout << "\n Parabens, você venceu o jogo!";
     else {
         cout << " Que pena. A palavra era: ";
         for (int i = 0; i < tamanhoPalavra; i++)
